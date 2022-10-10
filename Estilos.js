@@ -34,6 +34,11 @@ const estilos= StyleSheet.create( {
         height: 60,
         width: 200,
     },
-   }
+    buttonGeral: {
+      color:'#eb3b5b',
+      height: 40,
+      width: 110,
+    },
+    }
    );
    export {estilos}    
