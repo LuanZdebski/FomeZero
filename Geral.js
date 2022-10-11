@@ -14,7 +14,7 @@ const TableFour = () => {
         <Button title="DOAÇÕES" color='#F97089'></Button></View> 
         <View style={estilos.buttonGeral}><Button title="GERAL" color='#eb3b5b' onPress={() => navigation}></Button></View>
        <View style={estilos.buttonGeral}><Button title="ENTREGAS" color='#F97089' onPress={() => navigation}></Button></View>
-      </View><br></br><br></br>
+      </View> 
     </View>
     
     <Text style={{paddingBottom:15}}>    Estoque</Text>
@@ -41,7 +41,7 @@ const TableFour = () => {
                     <DataTable.Cell numeric>23</DataTable.Cell>
                 </DataTable.Row>
             </DataTable>
-<br></br><br></br><br></br>
+ 
                 <Text style={{paddingBottom:15}}>    Cardápio</Text>
                  <DataTable>
                 <DataTable.Header style={styles.head}>
