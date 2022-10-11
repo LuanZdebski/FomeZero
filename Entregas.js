@@ -14,11 +14,11 @@ const TableFour = () => {
         <Button title="DOAÇÕES" color='#F97089'></Button></View> 
         <View style={estilos.buttonGeral}><Button title="GERAL" color='#F97089' onPress={() => navigation}></Button></View>
        <View style={estilos.buttonGeral}><Button title="ENTREGAS" color='#eb3b5b' onPress={() => navigation}></Button></View>
-      </View><br> 
+      </View>
         <View style={estilos.buttonGeral}><Button title="Agendar" color='#eb3b5b' onPress={() => navigation}></Button></View>
     </View>
-   
-    <Text style={{paddingBottom:15}}>     Próximas Entregas</Text>
+       <Text style={{paddingBottom:50}}></Text>
+    <Text style={{paddingBottom:50}}>     Próximas Entregas</Text>
 
             <DataTable>
                 <DataTable.Header style={styles.head}>
