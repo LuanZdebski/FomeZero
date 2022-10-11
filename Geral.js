@@ -16,8 +16,8 @@ const TableFour = () => {
        <View style={estilos.buttonGeral}><Button title="ENTREGAS" color='#F97089' onPress={() => navigation}></Button></View>
       </View> 
     </View>
-    
-    <Text style={{paddingBottom:15}}>    Estoque</Text>
+    <Text style={{paddingBottom:40}}>    Estoque</Text>
+    <Text style={{paddingBottom:40}}>    Estoque</Text>
 
             <DataTable>
                 <DataTable.Header style={styles.head}>
@@ -41,8 +41,8 @@ const TableFour = () => {
                     <DataTable.Cell numeric>23</DataTable.Cell>
                 </DataTable.Row>
             </DataTable>
- 
-                <Text style={{paddingBottom:15}}>    Cardápio</Text>
+    <Text style={{paddingBottom:51}}> </Text>
+                <Text style={{paddingBottom:51}}>    Cardápio</Text>
                  <DataTable>
                 <DataTable.Header style={styles.head}>
                     <DataTable.Title>Produto</DataTable.Title>
