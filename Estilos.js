@@ -8,7 +8,7 @@ const estilos= StyleSheet.create( {
         alignItems: "center",
         justifyContent: "center",
         paddingTop: 60,
-        paddingBottom: 60,  
+        paddingBottom: 20,  
     },
     DivCampoLogin : {
         alignItems: "center",
@@ -30,15 +30,17 @@ const estilos= StyleSheet.create( {
         paddingBo: 25,
     },
     buttonLogin: {
-        color: '#eb3b5b',
         height: 60,
         width: 200,
     },
     buttonGeral: {
-      color:'#eb3b5b',
-      height: 40,
-      width: 110,
-    },
-    }
+        color:'#eb3b5b',
+        height: 40,
+        width: 110,
+      },
+    container: { flex: 1, paddingTop: 0, paddingHorizontal: 30, backgroundColor: '#f7a1b1'},
+    head: { height: 44  },
+    row: { height: 40 },
+   }
    );
    export {estilos}    
