@@ -7,6 +7,29 @@ import { estilos} from "./Estilos";
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
+// Conexão com o banco de dados Firebase
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyD3ZWQlTIatjP17_dOB34sTNLWkeq1ZU90",
+  authDomain: "fomezero-dde9f.firebaseapp.com",
+  databaseURL: "https://fomezero-dde9f-default-rtdb.firebaseio.com",
+  projectId: "fomezero-dde9f",
+  storageBucket: "fomezero-dde9f.appspot.com",
+  messagingSenderId: "941961131738",
+  appId: "1:941961131738:web:9927c5ca4907ae10bf57e3"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+//Aqui acaba API da conexão
+
 //Tela de Login
     const TelaLogin = props => {  
     const onCadastrar = () => {props.navigation.navigate('TelaCadastroUsuario');}
