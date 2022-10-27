@@ -3,32 +3,12 @@ import React from "react";
 import {Text, View, StyleSheet, Image, TextInput, Button} from "react-native";
 import { DataTable } from 'react-native-paper';
 import { estilos} from "./Estilos";
+import { doc, setDoc, addDoc, collection } from "firebase/firestore";
+import { db } from './components/firebase';
+import { useState } from 'react/cjs/react.development';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-
-// Conexão com o banco de dados Firebase
-
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyD3ZWQlTIatjP17_dOB34sTNLWkeq1ZU90",
-  authDomain: "fomezero-dde9f.firebaseapp.com",
-  databaseURL: "https://fomezero-dde9f-default-rtdb.firebaseio.com",
-  projectId: "fomezero-dde9f",
-  storageBucket: "fomezero-dde9f.appspot.com",
-  messagingSenderId: "941961131738",
-  appId: "1:941961131738:web:9927c5ca4907ae10bf57e3"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-//Aqui acaba API da conexão
 
 //Tela de Login
     const TelaLogin = props => {  
@@ -53,29 +33,46 @@ const app = initializeApp(firebaseConfig);
         </View>
     
     };
+   
 //Tela de Cadastro    
     const TelaCadastroUsuario = props => {  
     const onClickAqui = () => {props.navigation.navigate('TelaLogin');}   
+    const [user, setUser] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
 
+    function CadastrarUsuario()
+        {
+            if(password === confirmPassword)
+            {
+                console.log("passwordMatch");
+                setDoc(doc(db, "Usuario", user), {
+                    user: user,
+                    password: password
+                  }).then(() => {console.log('cadastrado');}).catch((error) => {console.log(error);})       
+            };;
+            onClickAqui;
+        }
         return <View style={estilos.DivRosaGeral}>
             <View style={estilos.DivTituloLogin}>
                 <Image style={estilos.TituloLogin} source={require('./Source/Titulo.png')}></Image>
             </View>
             <View style={estilos.DivCampoLogin}>
                 <Text style={estilos.TextPreto}>Usuário:</Text>
-                <TextInput style={estilos.inputBox}></TextInput>
+                <TextInput value={user} onChangeText={(user) => {setUser(user)}} style={estilos.inputBox}></TextInput>
                 <Text style={estilos.TextPreto}>Senha:</Text>
-                <TextInput style={estilos.inputBox}></TextInput>
+                <TextInput value={password} onChangeText={(password) => {setPassword(password)}} style={estilos.inputBox}></TextInput>
                 <Text style={estilos.TextPreto}>Confirmar senha:</Text>
-                <TextInput style={estilos.inputBox}></TextInput>
+                <TextInput value={confirmPassword} onChangeText={(confirmPassword) => {setConfirmPassword(confirmPassword)}} style={estilos.inputBox}></TextInput>
                 <View style={{paddingTop:15}}></View>
                 <Text style={{paddingBottom:15}}>Já possui uma conta? <Text onPress={onClickAqui}>Click aqui!</Text></Text>
-                <View style={estilos.buttonLogin}><Button title="Registrar" color='#eb3b5b'></Button></View>
+                <View style={estilos.buttonLogin}><Button title="Registrar" color='#eb3b5b' onPress={CadastrarUsuario}></Button></View>
                 
             </View>
         </View>
         
         };
+        
 //Menu Principal
 //GERAL
 const TelaGeral = props => {
